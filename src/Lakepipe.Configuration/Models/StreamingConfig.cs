@@ -100,6 +100,32 @@ public record StreamingConfig
     /// Backpressure configuration.
     /// </summary>
     public BackpressureConfig Backpressure { get; init; } = new();
+
+    /// <summary>
+    /// CPU affinity configuration.
+    /// </summary>
+    public CpuAffinityConfig CpuAffinity { get; init; } = new();
+}
+
+/// <summary>
+/// CPU affinity configuration for optimized processing.
+/// </summary>
+public record CpuAffinityConfig
+{
+    /// <summary>
+    /// Enable CPU affinity.
+    /// </summary>
+    public bool Enabled { get; init; } = true;
+
+    /// <summary>
+    /// Number of dedicated cores for processing.
+    /// </summary>
+    public int DedicatedCores { get; init; } = 4;
+
+    /// <summary>
+    /// Pin threads to specific cores.
+    /// </summary>
+    public bool PinToCore { get; init; } = true;
 }
 
 /// <summary>
